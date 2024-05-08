@@ -1,6 +1,7 @@
 import useCount from "../../customHook/useCount";
 import { ItemCounts } from "./ItemCounts";
 import '../css/product.css';
+import { Link } from "react-router-dom";
 import { ProductView } from "../../views/ProductView";
 export const ProductComponent = ({ product }) => {
 
@@ -14,7 +15,8 @@ export const ProductComponent = ({ product }) => {
 
   console.log({ count, product });
   return (
-<div className="product-component rounded items-center bg-sky-50 flex hover:bg-sky-200 border-2">
+    <Link to={ProductView}>
+    <div className="product-component rounded items-center bg-sky-50 flex hover:bg-sky-200 border-2">
 
       <div className="">
        
@@ -41,6 +43,8 @@ export const ProductComponent = ({ product }) => {
        
       </div>
     </div>
+    </Link>
+
   
     
   )

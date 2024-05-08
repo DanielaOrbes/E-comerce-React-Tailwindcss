@@ -1,3 +1,4 @@
+import { getProductByCategory } from '../../mock/asyncMock';
 import '../css/categorylist.css';
 import { NavLink } from "react-router-dom";
 
@@ -32,6 +33,7 @@ return (
             {ruta.label}
           </NavLink>
         </li>
+        
       ))}
     </ul>
   </nav>
