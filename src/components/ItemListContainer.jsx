@@ -1,17 +1,26 @@
-import { ItemCounts } from "./ItemCounts"
+import { ListProducts } from "./ListProducts";
+import { useProducts } from "../../customHook/useProducts";
+import { Target } from "./styles/Target";
+
 
 export const ItemListContainer = ({greeting}) => {
 
-  const onAdd = (product) => {
-    console.log(`Hay ${product} unidades en el carrito`);
-   }
+  const { productsMock, isLoading} = useProducts();
+
+  if (isLoading) {
+    return <h1 className="cursor-wait	">CARGANDO..</h1>
+  }
+
     return (
+      <>
       <div>
         <h1 className=" text-3xl italic animate-pulse">
           {greeting}
         </h1>
-        <ItemCounts initial={0} stock={4} onAdd={onAdd} />
+          <ListProducts items={productsMock} />
       </div>
+      </>
+
     )
   }
   

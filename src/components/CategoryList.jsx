@@ -3,7 +3,6 @@ import { ShadowComponents } from './ShadowComponents';
 
 export const CategoryList = () => {
 
-
   return (
     <div>
       <nav>

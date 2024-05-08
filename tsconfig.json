@@ -20,6 +20,6 @@
     "noUnusedParameters": true,
     "noFallthroughCasesInSwitch": true
   },
-  "include": ["src"],
+  "include": ["src", "views/HomeComponent.jsx", "views/CartView.jsx", "views/Home.jsx"],
   "references": [{ "path": "./tsconfig.node.json" }]
 }

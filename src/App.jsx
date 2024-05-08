@@ -1,13 +1,27 @@
-import { Header } from './components/Header';
-import { ItemListContainer } from './components/ItemListContainer';
+import { BrowserRouter, Routes, Route } from 'react-router-dom';
+import { Home } from '../views/Home.jsx';
+import { Layout } from './childrens/Layout.jsx';
+import { CartView } from '../views/CartView.jsx'
 
 export const App = () => {
   return (
-    <div>
-      <div>
-        <Header />
-      </div>
-      <ItemListContainer greeting="¡Hola Mundo!" />
-    </div>
+    <BrowserRouter>
+
+    <Layout>
+
+      <Routes>
+
+        <Route path="/" element={<Home />}/>
+        <Route path="CartView"  element={<CartView />}/>
+        <Route path="*" element={<h1>Not Found</h1>} />
+        
+
+      </Routes>
+
+    </Layout>
+      
+    </BrowserRouter>
   )
 }
+
+
