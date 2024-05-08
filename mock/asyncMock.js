@@ -6,6 +6,7 @@ const productsMock = [
     description: "Lorem ipsum dolor sit amet consectetur, adipisicing elit.",
     image: "/public/img/Volumen_47.webp",
     stock: 5,
+    category: "manga",
   },
   {
     id: 2,
@@ -15,6 +16,7 @@ const productsMock = [
     image:
       "/public/img/deathnote05.jpg",
     stock: 2,
+    category: "manga",
   },
   {
     id: 3,
@@ -23,6 +25,7 @@ const productsMock = [
     description: "Lorem ipsum dolor sit amet consectetur, adipisicing elit.",
     image: "/public/img/irumakun05.jpg",
     stock: 4,
+    category: "manga",
   },
   {
     id: 4,
@@ -31,6 +34,7 @@ const productsMock = [
     description: "Lorem ipsum dolor sit amet consectetur, adipisicing elit.",
     image: "/public/img/X-Men_Vol_1_136.webp",
     stock: 0,
+    category: "comic",
   },
   {
     id: 5,
@@ -39,6 +43,7 @@ const productsMock = [
     description: "Lorem ipsum dolor sit amet consectetur, adipisicing elit.",
     image: "/public/img/comic-hombre-araña.jpg",
     stock: 1,
+    category: "comic",
   },
 ];
 

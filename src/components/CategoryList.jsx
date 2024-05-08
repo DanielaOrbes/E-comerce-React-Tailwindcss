@@ -22,9 +22,9 @@ const RUTAS_CATEGORY = [
 
 return (
   <nav>
-    <ul className="flex items-center mt-2">
+    <ul className="flex items-center mt-2 ">
       {RUTAS_CATEGORY.map((ruta) => (
-        <li>
+        <li className='m-2 itemNav shadow hover:shadow-lg '>
           <NavLink
             className={({ isActive }) => (isActive ? "active-link" : "")}
             to={ruta.path}
