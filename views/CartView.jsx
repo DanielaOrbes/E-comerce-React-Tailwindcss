@@ -3,6 +3,7 @@ export const CartView = () => {
   return (
 
     <div>
+      
 
       <h1 className="">Su carrito está vacío</h1>
       <div className="">

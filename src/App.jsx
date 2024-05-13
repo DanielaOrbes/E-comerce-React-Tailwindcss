@@ -9,26 +9,31 @@ export const App = () => {
   return (
     <BrowserRouter>
 
-    <Layout>
+      <Layout>
 
-      <Routes>
+        <Routes>
 
-        <Route path="/" element={<Home />}/>
-        <Route path="/CartView"  element={<CartView />}/>
-        <Route path="/ProductView/:productId" element={<ProductView />} />
-        <Route
+          <Route path="/" element={<Home />} />
+          <Route path="/CartView" element={<CartView />} />
+          <Route path="/ProductView/:productID" element={<ProductView />} />
+          <Route path="/mangas" element={<h1>MANGAS</h1>} />
+          <Route path="/animes" element={<h1>ANIMES</h1>} />
+          <Route path="comics" element={<h1>COMICS</h1>} />
+          <Route
             path="/category/:categoryId"
             element={<CategoryView />}
           />
-        <Route path="*" element={<h1>Not Found</h1>} />
-        
+          <Route
+            path="*"
+            element={<h1>Not Found</h1>}
+          />
 
-      </Routes>
+        </Routes>
 
-    </Layout>
-      
+      </Layout>
+
     </BrowserRouter>
   )
 }
-
+ 
 

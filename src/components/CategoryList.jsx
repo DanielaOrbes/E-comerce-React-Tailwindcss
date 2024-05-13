@@ -11,8 +11,8 @@ const RUTAS_CATEGORY = [
     label: "Mangas",
   },
   {
-    path: "/anime",
-    label: "Anime",
+    path: "/animes",
+    label: "Animes",
   },
   {
     path: "/comics",
