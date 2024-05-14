@@ -15,7 +15,6 @@ export const ProductComponent = ({ product }) => {
     console.log("cantidadaLlevar: ", quantityProduct);
   };
 
-  console.log({ count, product });
   return (
 
     <div className="product-component rounded items-center bg-sky-50 flex hover:bg-sky-200 border-2">

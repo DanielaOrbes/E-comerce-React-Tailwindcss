@@ -15,10 +15,12 @@ export const App = () => {
 
           <Route path="/" element={<Home />} />
           <Route path="/CartView" element={<CartView />} />
-          <Route path="/ProductView/:productID" element={<ProductView />} />
+          <Route path="/views/ProductView/:productID" element={<ProductView />} />
+          ///////**RUTAS DE CategoryList**///////
           <Route path="/mangas" element={<h1>MANGAS</h1>} />
           <Route path="/animes" element={<h1>ANIMES</h1>} />
           <Route path="comics" element={<h1>COMICS</h1>} />
+
           <Route
             path="/category/:categoryId"
             element={<CategoryView />}
