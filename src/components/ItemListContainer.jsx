@@ -1,26 +1,27 @@
-import { ListProducts } from "./ListProducts";
 import { useProducts } from "../../customHook/useProducts";
-import { Target } from "./styles/Target";
+import { ListProducts } from "./ListProducts";
+import { useParams } from "react-router-dom";
 
 
-export const ItemListContainer = ({greeting}) => {
+export const ItemListContainer = ({ greeting }) => {
 
-  const { productsMock, isLoading} = useProducts();
+  const { categoryId } = useParams();
+  const { products, isLoading } = useProducts(categoryId);
 
   if (isLoading) {
     return <h1 className="cursor-wait	">CARGANDO..</h1>
   }
-
-    return (
-      <>
-      <div>
-        <h1 className=" text-3xl italic animate-pulse">
-          {greeting}
-        </h1>
-          <ListProducts items={productsMock} />
-      </div>
-      </>
-
-    )
-  }
   
+
+
+  return ( 
+
+    <div>
+      <h1 className=" text-3xl italic animate-pulse">
+        {greeting}
+      </h1>
+      <ListProducts items={products} />
+    </div>
+
+  )
+}

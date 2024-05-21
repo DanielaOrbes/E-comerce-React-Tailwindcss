@@ -1,20 +1,29 @@
 import { useEffect, useState } from "react"
-import { getProducts } from "/mock/asyncMock";
+import { getProducts, getProductsByCategory } from "/mock/asyncMock";
 
-export const useProducts = () => {
+export const useProducts = (categoryId) => {
 
-    const [productsMock, setProducts] = useState([]);
+    const [products, setProducts] = useState([]);
     const [isLoading, setIsLoading] = useState(true);
-
+  
     useEffect(() => {
+      setIsLoading(true);
+      if (categoryId) {
+        getProductsByCategory(categoryId)
+          .then((data) => setProducts(data))
+          .finally(() => setIsLoading(false));
+
+      } else {
         getProducts()
-            .then((data) => setProducts(data))
-            .finally(() => setIsLoading(false))
-    }, []);
+          .then((data) => setProducts(data))
+          .finally(() => setIsLoading(false));
+      }
 
-    return {
-        productsMock,
-        isLoading
-    };
+    }, [categoryId]
+  );   
+      
+    return { products, isLoading };
+  }
 
-};
+  
+

@@ -1,3 +1,4 @@
+import { Footer } from '../components/Footer'
 import { Header } from '../components/Header'
 
 export const Layout = ({children}) => {
@@ -7,6 +8,7 @@ export const Layout = ({children}) => {
         <main className='flex-grow  h-max w-max '>
             {children}
         </main>
+        <Footer />
     </div>
   )
 }

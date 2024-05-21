@@ -1,31 +1,30 @@
-import { getProductByCategory } from '../../mock/asyncMock';
 import '../css/categorylist.css';
 import { NavLink } from "react-router-dom";
 
 export const CategoryList = () => {
 
 
-const RUTAS_CATEGORY = [
+const RUTAS= [
   {
-    path: "/mangas",
-    label: "Mangas",
+    path: "/category/mangas", //A DONDE APUNTA EL LINK
+    label: "Mangas", //NOMBRE PARA QUE VEA EL USUARIO
   },
   {
-    path: "/animes",
+    path: "/category/animes",
     label: "Animes",
   },
   {
-    path: "/comics",
+    path: "/category/comics",
     label: "Comics",
   },
   
-];
+]; 
 
 return (
   <nav>
-    <ul className="flex items-center mt-2 ">
-      {RUTAS_CATEGORY.map((ruta) => (
-        <li className='m-2 itemNav shadow hover:shadow-lg '>
+    <ul className="flex items-center mt-2">
+      {RUTAS.map((ruta) => (
+        <li className='m-2 itemNav shadow hover:shadow-lg ' key={ruta.path}>
           <NavLink
             className={({ isActive }) => (isActive ? "active-link" : "")}
             to={ruta.path}
@@ -33,7 +32,6 @@ return (
             {ruta.label}
           </NavLink>
         </li>
-        
       ))}
     </ul>
   </nav>

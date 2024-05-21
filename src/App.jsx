@@ -1,9 +1,8 @@
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
-import { Home } from '../views/Home.jsx';
 import { Layout } from './childrens/Layout.jsx';
 import { CartView } from '../views/CartView.jsx'
-import { ProductView } from '../views/ProductView.jsx';
-import { CategoryView } from '../views/CategoryView.jsx';
+import { ProductDatailComponent } from './components/ProductDatailComponent.jsx';
+import { ItemListContainer } from './components/ItemListContainer.jsx';
 
 export const App = () => {
   return (
@@ -13,22 +12,15 @@ export const App = () => {
 
         <Routes>
 
-          <Route path="/" element={<Home />} />
+          <Route path="/" element={<ItemListContainer />} />
+          <Route path="/category/:categoryId" element={<ItemListContainer />} />
           <Route path="/CartView" element={<CartView />} />
-          <Route path="/views/ProductView/:productID" element={<ProductView />} />
-          ///////**RUTAS DE CategoryList**///////
-          <Route path="/mangas" element={<h1>MANGAS</h1>} />
-          <Route path="/animes" element={<h1>ANIMES</h1>} />
-          <Route path="comics" element={<h1>COMICS</h1>} />
+          <Route path="/product/:productId" element={<ProductDatailComponent />} />
 
-          <Route
-            path="/category/:categoryId"
-            element={<CategoryView />}
-          />
-          <Route
-            path="*"
-            element={<h1>Not Found</h1>}
-          />
+          <Route path="/cart" element={<CartView />} />
+         
+
+          <Route path="*" element={<h1>Not Found</h1>}/>
 
         </Routes>
 
