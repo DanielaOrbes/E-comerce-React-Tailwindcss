@@ -8,34 +8,34 @@ import { useEffect, useState } from "react";
    where,
  } from "firebase/firestore";
 
- export default function useProductsByCategory(categoria) {
-   const [productos, setProducto] = useState(null);
-   const [cargando, setCargando] = useState(true);
+ export default function useProductsByCategory(category) {
+   const [products, setProduct] = useState(null);
+   const [loading, setloading] = useState(true);
 
    useEffect(() => {
      const bd = getFirestore();
 
      const q = query(
-       collection(bd, "productos"),
-       where("categoria", "===", categoria)
+       collection(bd, "products"),
+       where("category", "===", category)
      );
 
      getDocs(q)
        .then((snapshot) => {
-         setProducto(
+         setProduct(
            snapshot.docs.map((doc) => ({
-             categoria: doc.categoria,
+             category: doc.category,
              ...doc.data(),
            }))
          );
        })
        .finally(() => {
-         setCargando(false);
+         setloading(false);
        });
-   }, [categoria]);
+   }, [category]);
 
    return {
-     productos,
-     cargando,
+     products,
+     loading,
    };
  }

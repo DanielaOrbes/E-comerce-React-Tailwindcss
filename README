@@ -1,0 +1,27 @@
+
+![react](	https://media1.giphy.com/media/iFmw13LV1hHhViPPWz/source.gif)
+# Project Coder House
+
+# e-comerce 
+
+### com54120
+
+En este projecto se puede observar una pantalla inicial que contien una lista de productos disponibles al cual se puede acceder al detalle de cada uno, así mismo una lista de categorias y un carrito.
+Para permitir la compra de cuelquier producto debe completar un formulario el cual le permite loguearse y realizar su compra exitosamente.
+
+## Instalación
+
+
+```bash
+  npm install 
+  crear carpeta .env
+  configurar las variables de entorno
+  npm run dev
+```
+    
+    ## 🛠 Skills
+- React,
+- Javascript,
+- Tailwindcss,
+- Firebase
+
