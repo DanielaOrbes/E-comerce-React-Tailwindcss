@@ -3,9 +3,9 @@ import { Header } from '../components/Header'
 
 export const Layout = ({children}) => {
   return (
-    <div className='relative w-full mx-auto flex flex-col justify-between'>
+    <div className=' w-full mx-auto flex flex-col'>
         <Header />
-        <main className='flex-grow  h-max w-max '>
+        <main className='mx-auto h-full'>
             {children}
         </main>
         <Footer />

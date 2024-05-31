@@ -1,7 +1,7 @@
 .product-component {
     margin: 50px;
-    width: 500px;
-    padding: 90px;
+    width: 300px;
+    padding: 50px;
     display: flex;
     flex-direction: column;
     flex-wrap: wrap;
@@ -12,23 +12,20 @@
 
 .img-product {
     border: 5px solid darkblue;
+    width: 200px;
 }
 
 .title-produtc {
     size: 200px;
 }
 
-.product-list {}
 
 .price-product {
     font-weight: bold;
     font-size: 20px;
 }
 
-.product-list {
-    flex-wrap: wrap;
-    gap: 15px;
-}
+
 
 .description-product {
     color: gray;

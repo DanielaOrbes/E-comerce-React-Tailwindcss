@@ -1,44 +1,47 @@
+import { useState } from 'react';
 import '../css/categorylist.css';
-import { NavLink } from "react-router-dom";
+import { NavLink } from 'react-router-dom';
 
 export const CategoryList = () => {
+  const RUTAS = [
+    {
+      path: '/category/mangas',
+      label: 'Mangas',
+    },
+    {
+      path: '/category/animes',
+      label: 'Animes',
+    },
+    {
+      path: '/category/comics',
+      label: 'Comics',
+    },
+  ];
 
+  const [isOpen, setIsOpen] = useState(false);
 
-const RUTAS= [
-  {
-    path: "/category/mangas", //A DONDE APUNTA EL LINK
-    label: "Mangas", //NOMBRE PARA QUE VEA EL USUARIO
-  },
-  {
-    path: "/category/animes",
-    label: "Animes",
-  },
-  {
-    path: "/category/comics",
-    label: "Comics",
-  },
-  
-]; 
+  const toggleMenu = () => {
+    setIsOpen(!isOpen);
+  };
 
-return (
-  <nav>
-    <ul className="flex items-center mt-2">
-      {RUTAS.map((ruta) => (
-        <li className='m-2 itemNav shadow hover:shadow-lg ' key={ruta.path}>
-          <NavLink
-            className={({ isActive }) => (isActive ? "active-link" : "")}
-            to={ruta.path}
-          >
-            {ruta.label}
-          </NavLink>
-        </li>
-      ))}
-    </ul>
-  </nav>
-);
-}
-
-
-
-
-
+  return (
+    <nav>
+      <div className="">
+        <button onClick={toggleMenu} className="">
+          Categoría
+        </button>
+        {isOpen && (
+          <ul className="categoryMenu">
+            {RUTAS.map((ruta) => (
+              <li className="itemNav shadow hover:shadow-lg" key={ruta.path}>
+                <NavLink to={ruta.path} onClick={toggleMenu}>
+                  {ruta.label}
+                </NavLink>
+              </li>
+            ))}
+          </ul>
+        )}
+      </div>
+    </nav>
+  );
+};

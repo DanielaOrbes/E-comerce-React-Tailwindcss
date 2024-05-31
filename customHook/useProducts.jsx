@@ -1,29 +1,49 @@
-import { useEffect, useState } from "react"
-import { getProducts, getProductsByCategory } from "/mock/asyncMock";
+import { useEffect, useState } from "react";
+import {
+  collection,
+  getDocs,
+  getFirestore,
+  query,
+  where,
+} from "firebase/firestore";
 
-export const useProducts = (categoryId) => {
+export default function useProducts(categoryId) {
+  const [products, setProducts] = useState([]);
+  const [isLoading, setIsLoading] = useState(true);
 
-    const [products, setProducts] = useState([]);
-    const [isLoading, setIsLoading] = useState(true);
-  
-    useEffect(() => {
-      setIsLoading(true);
-      if (categoryId) {
-        getProductsByCategory(categoryId)
-          .then((data) => setProducts(data))
-          .finally(() => setIsLoading(false));
+  useEffect(() => {
+    setIsLoading(true);
+    const db = getFirestore();
+    const productsCollection = collection(db, "products");
+    if (categoryId) {
+      const productsQuery = query(
+        productsCollection,
+        where("categoryId", "==", categoryId)
+      );
 
-      } else {
-        getProducts()
-          .then((data) => setProducts(data))
-          .finally(() => setIsLoading(false));
-      }
+      getDocs(productsQuery)
+        .then((snapshot) => {
+          setProducts(
+            snapshot.docs.map((doc) => ({
+              id: doc.id,
+              ...doc.data(),
+            }))
+          );
+        })
+        .finally(() => setIsLoading(false));
+    } else {
+      getDocs(productsCollection)
+        .then((snapshot) => {
+          setProducts(
+            snapshot.docs.map((doc) => ({
+              id: doc.id,
+              ...doc.data(),
+            }))
+          );
+        })
+        .finally(() => setIsLoading(false));
+    }
+  }, [categoryId]);
 
-    }, [categoryId]
-  );   
-      
-    return { products, isLoading };
-  }
-
-  
-
+  return { products, isLoading };
+}

@@ -1,33 +1,43 @@
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import { Layout } from './childrens/Layout.jsx';
-import { CartView } from '../views/CartView.jsx'
 import { ProductDatailComponent } from './components/ProductDatailComponent.jsx';
 import { ItemListContainer } from './components/ItemListContainer.jsx';
+import { CartProvider } from '../contexts/cartContext/CartProvider.jsx';
+import { CartContainer } from './components/CartContainer.jsx';
+import { Form } from './components/Form.jsx';
+import { User } from './components/User.jsx';
 
 export const App = () => {
   return (
     <BrowserRouter>
 
-      <Layout>
+      <CartProvider>
 
-        <Routes>
+        <Layout>
 
-          <Route path="/" element={<ItemListContainer />} />
-          <Route path="/category/:categoryId" element={<ItemListContainer />} />
-          <Route path="/CartView" element={<CartView />} />
-          <Route path="/product/:productId" element={<ProductDatailComponent />} />
+          <Routes>
 
-          <Route path="/cart" element={<CartView />} />
-         
+            <Route path="/" element={<ItemListContainer />} />
+            <Route path="/category/:categoryId" element={<ItemListContainer />} />
+            <Route path="/product/:productId" element={<ProductDatailComponent />} />
 
-          <Route path="*" element={<h1>Not Found</h1>}/>
+            <Route path="/cart" element={<CartContainer />} />
+            <Route path="/user" element={<User/>} />
+            <Route path="/checkout" element={<Form />} />
 
-        </Routes>
 
-      </Layout>
+            <Route path="*" element={<h1>Not Found</h1>} />
+
+          </Routes>
+
+        </Layout>
+
+      </CartProvider>
+
+
 
     </BrowserRouter>
   )
 }
- 
+
 

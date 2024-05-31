@@ -7,6 +7,8 @@ export const ProductDatailComponent = () => {
   const params = useParams();
   const { productId } = params;
   const { loading, product } = useProductById(productId);
+  console.log(product);
+
 
   if (loading) {
     return <h1>Cargando...</h1>;
@@ -16,15 +18,19 @@ export const ProductDatailComponent = () => {
   if (!product) {
     return <h1>No disponible</h1>;
   
-  }else{
+  }
 
     return (
-    <div className="">
+    <div>
       <ProductDetail product={product} />
     </div>
   );
 }
-  }
+
+
+
+ 
+
 
   
 

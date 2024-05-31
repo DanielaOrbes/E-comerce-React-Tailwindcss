@@ -1,22 +1,41 @@
 import { useEffect, useState } from "react";
-import { getProductsByCategory } from "../mock/asyncMock";
 
-export default function useProductByCategory(category) {
-  const [products, setProducts] = useState([]);
-  const [loading, setLoading] = useState(true);
+ import {
+   collection,
+   getDocs,
+   getFirestore,
+   query,
+   where,
+ } from "firebase/firestore";
 
-  useEffect(() => {
-    getProductsByCategory(category)
-      .then((products) => {
-        setProducts(products);
-      })
-      .finally(() => {
-        setLoading(false);
-      });
-  }, [category]);
+ export default function useProductsByCategory(categoria) {
+   const [productos, setProducto] = useState(null);
+   const [cargando, setCargando] = useState(true);
 
-  return {
-    products,
-    loading,
-  };
-}
+   useEffect(() => {
+     const bd = getFirestore();
+
+     const q = query(
+       collection(bd, "productos"),
+       where("categoria", "===", categoria)
+     );
+
+     getDocs(q)
+       .then((snapshot) => {
+         setProducto(
+           snapshot.docs.map((doc) => ({
+             categoria: doc.categoria,
+             ...doc.data(),
+           }))
+         );
+       })
+       .finally(() => {
+         setCargando(false);
+       });
+   }, [categoria]);
+
+   return {
+     productos,
+     cargando,
+   };
+ }
